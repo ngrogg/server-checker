@@ -5,11 +5,12 @@ A BASH script to check and log the overall status of a Linux server's processes,
 Designed primarily for DEB and RPM based systems. Should be easy enough to expand to other package managers. <br>
 
 ## Usage
-Just run the script: `./serverChecker.sh`. <br>
+Just run the script: `./serverChecker.sh`. <br> <br>
+Creates it's own log file <br>
 
 ## Requirements
 ### Sudoer/Wheel group
-Script doesn't need run as root user, however the user running script will need sudo access.
+Script doesn't need run as root user, however the user running script will need sudo access. <br>
 Doas is planned in the future.
 
 ### Packages

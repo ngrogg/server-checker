@@ -1,0 +1,20 @@
+20250726 - Beginning Server Checker package check
+----------------------------------------------------
+20250726 - Required package lsof found, proceeding
+20250726 - Required package ss found, proceeding
+20250726 - Validation Checks
+----------------------------------------------------
+20250726 - sudo and doas found, default to sudo
+20250726 - End Server Checker run
+20250726 - Beginning Server Checker package checks
+----------------------------------------------------
+20250726 - Required package lsof found, proceeding
+20250726 - Required package ss found, proceeding
+20250726 - Ending Server Checker package checks
+----------------------------------------------------
+20250726 - Validation Checks
+----------------------------------------------------
+20250726 - sudo and doas found, default to sudo
+20250726 - Ending Validation checks
+----------------------------------------------------
+20250726 - End Server Checker run
