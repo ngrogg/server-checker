@@ -11,11 +11,12 @@ Creates it's own log file <br>
 ## Requirements
 ### Sudoer/Wheel group
 Script doesn't need run as root user, however the user running script will need sudo access. <br>
-Doas is planned in the future.
+Doas is also supported.
 
 ### Packages
 The following packages are required: <br>
 * **iproute2**
 * **lsof**
+* **sysstat**
 
 The script will attempt to install them if they're not found.
