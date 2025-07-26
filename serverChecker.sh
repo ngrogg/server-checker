@@ -8,6 +8,7 @@
 # Template log messages, remove when complete
 #echo "$(date +%Y%m%d) - " >> log/serverChecker.$(date +%Y%m%d).log
 #echo "----------------------------------------------------" >> log/serverChecker.$(date +%Y%m%d).log
+#| tee -a log/serverChecker.$(date +%Y%m%d).log
 
 # Preparation
 ## Create log file and folder if it doesn't exist
@@ -39,7 +40,7 @@ else
     fi
 fi
 
-# ss check
+# ss check, ss is part of iproute2
 if [[ -f /usr/bin/ss ]]; then
     echo "$(date +%Y%m%d) - Required package ss found, proceeding" >> log/serverChecker.$(date +%Y%m%d).log
 else
@@ -51,6 +52,24 @@ else
     elif [[ -f /usr/bin/dnf ]]; then
         echo "$(date +%Y%m%d) - DNF package manager found" >> log/serverChecker.$(date +%Y%m%d).log
         sudo dnf install iproute2 -y
+    else
+        echo "$(date +%Y%m%d) - Neither APT nor DNF found, exiting" >> log/serverChecker.$(date +%Y%m%d).log
+        exit 1
+    fi
+fi
+
+# sysstat check, mpstat is part of sysstat
+if [[ -f /usr/bin/mpstat ]]; then
+    echo "$(date +%Y%m%d) - Required package mpstat found, proceeding" >> log/serverChecker.$(date +%Y%m%d).log
+else
+    echo "$(date +%Y%m%d) - Required package sysstat not found, attempting install" >> log/serverChecker.$(date +%Y%m%d).log
+    #### Check for apt/dnf, exit w/ 1 otherwise expand with other package managers as desired
+    if [[ -f /usr/bin/apt ]]; then
+        echo "$(date +%Y%m%d) - APT package manager found" >> log/serverChecker.$(date +%Y%m%d).log
+        sudo apt install sysstat -y
+    elif [[ -f /usr/bin/dnf ]]; then
+        echo "$(date +%Y%m%d) - DNF package manager found" >> log/serverChecker.$(date +%Y%m%d).log
+        sudo dnf install sysstat -y
     else
         echo "$(date +%Y%m%d) - Neither APT nor DNF found, exiting" >> log/serverChecker.$(date +%Y%m%d).log
         exit 1
@@ -86,9 +105,22 @@ echo "$(date +%Y%m%d) - Ending Validation checks" >> log/serverChecker.$(date +%
 echo "----------------------------------------------------" >> log/serverChecker.$(date +%Y%m%d).log
 
 # Basic checks
+echo "$(date +%Y%m%d) - Beginning basic checks" >> log/serverChecker.$(date +%Y%m%d).log
+echo "----------------------------------------------------" >> log/serverChecker.$(date +%Y%m%d).log
 ## Uptime
+echo "$(date +%Y%m%d) - Uptime" >> log/serverChecker.$(date +%Y%m%d).log
+uptime | tee -a log/serverChecker.$(date +%Y%m%d).log
+
 ## CPU Load
+echo "$(date +%Y%m%d) - CPU usage" >> log/serverChecker.$(date +%Y%m%d).log
+mpstat | tee -a log/serverChecker.$(date +%Y%m%d).log
+
 ## RAM usage
+echo "$(date +%Y%m%d) - RAM usage" >> log/serverChecker.$(date +%Y%m%d).log
+free -g | tee -a log/serverChecker.$(date +%Y%m%d).log
+
+echo "$(date +%Y%m%d) - Ending basic checks" >> log/serverChecker.$(date +%Y%m%d).log
+echo "----------------------------------------------------" >> log/serverChecker.$(date +%Y%m%d).log
 
 # Services
 ## Check for failed services

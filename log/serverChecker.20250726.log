@@ -1,20 +1,29 @@
-20250726 - Beginning Server Checker package check
-----------------------------------------------------
-20250726 - Required package lsof found, proceeding
-20250726 - Required package ss found, proceeding
-20250726 - Validation Checks
-----------------------------------------------------
-20250726 - sudo and doas found, default to sudo
-20250726 - End Server Checker run
+
 20250726 - Beginning Server Checker package checks
 ----------------------------------------------------
 20250726 - Required package lsof found, proceeding
 20250726 - Required package ss found, proceeding
+20250726 - Required package mpstat found, proceeding
 20250726 - Ending Server Checker package checks
 ----------------------------------------------------
-20250726 - Validation Checks
+20250726 - Beginning Validation Checks
 ----------------------------------------------------
 20250726 - sudo and doas found, default to sudo
 20250726 - Ending Validation checks
+----------------------------------------------------
+20250726 - Beginning basic checks
+----------------------------------------------------
+20250726 - Uptime
+ 11:21:45 up 59 min,  1 user,  load average: 0.24, 0.31, 0.35
+20250726 - CPU usage
+Linux 6.12.10-76061203-generic (pop-os) 	07/26/2025 	_x86_64_	(16 CPU)
+
+11:21:45 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+11:21:45 AM  all    0.38    0.30    0.25    0.45    0.00    0.01    0.00    0.00    0.00   98.60
+20250726 - RAM usage
+               total        used        free      shared  buff/cache   available
+Mem:              61           2          55           0           3          55
+Swap:             19           0          19
+20250726 - Ending basic checks
 ----------------------------------------------------
 20250726 - End Server Checker run
