@@ -4,7 +4,6 @@
 # BASH script to view/log server information
 # By Nicholas Grogg
 
-
 # Template log messages, remove when complete
 #echo "$(date +%Y%m%d) - " | tee -a log/serverChecker.$(date +%Y%m%d).log
 #echo "----------------------------------------------------" | tee -a log/serverChecker.$(date +%Y%m%d).log
@@ -184,6 +183,9 @@ echo "----------------------------------------------------" | tee -a log/serverC
 
 ## Find large logs (> 1GB)
 echo "$(date +%Y%m%d) - Log files larger than 1 GB" | tee -a log/serverChecker.$(date +%Y%m%d).log
+
+### Find files in /var/log over 1 GB in size
+$escalationProgram find /var/log -type f -size +1G | tee -a log/serverChecker.$(date +%Y%m%d).log
 
 #TODO
 ## Files held in memory
