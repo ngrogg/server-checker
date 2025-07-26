@@ -187,9 +187,14 @@ echo "$(date +%Y%m%d) - Log files larger than 1 GB" | tee -a log/serverChecker.$
 ### Find files in /var/log over 1 GB in size
 $escalationProgram find /var/log -type f -size +1G | tee -a log/serverChecker.$(date +%Y%m%d).log
 
-#TODO
 ## Files held in memory
-echo "$(date +%Y%m%d) - Files held in memory" | tee -a log/serverChecker.$(date +%Y%m%d).log
+echo "$(date +%Y%m%d) - Deleted files held in memory" | tee -a log/serverChecker.$(date +%Y%m%d).log
+### Command breakdown
+### lsof +L1, show files with a link count less than 1. Typical in deleted files held in memory
+### tail -n +2, remove lsof headers. Required for number formatting
+### numfmt --field=7 --to=iec, Format field 7 (the size field) to single letter suffix (M, G etc)
+### sort -k7 -n -r, sort key 7 (the size field) numerically and in reverse
+$escalationProgram lsof +L1 | tail -n +2 | numfmt --field=7 --to=iec | sort -k7 -n -r
 
 #TODO
 ## Low disk space
