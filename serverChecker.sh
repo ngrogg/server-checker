@@ -160,9 +160,11 @@ echo "----------------------------------------------------" | tee -a log/serverC
 echo "$(date +%Y%m%d) - Last logins" | tee -a log/serverChecker.$(date +%Y%m%d).log
 last | head -n 10 | tee -a log/serverChecker.$(date +%Y%m%d).log
 
-#TODO
-## Check for expired passwords
-echo "$(date +%Y%m%d) - Expired Passwords" | tee -a log/serverChecker.$(date +%Y%m%d).log
+## Check for user password expirations
+echo "$(date +%Y%m%d) - User password check" | tee -a log/serverChecker.$(date +%Y%m%d).log
+for user in $(ls /home); do echo $user; $escalationProgram chage -l $user | grep "Password expires"; done |  tee -a log/serverChecker.$(date +%Y%m%d).log
+
+### Expand to other directories as needed. For example, SFTP users jailed to a specific directory
 
 ## Check sudoer file integrity (sudo and doas)
 echo "$(date +%Y%m%d) - Escalation Check" | tee -a log/serverChecker.$(date +%Y%m%d).log
