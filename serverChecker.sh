@@ -25,6 +25,16 @@ spaceInUse=$(df -h | grep "/$" | awk '{print $5}' | sed 's/.$//')
 ### df -hi, list available disk inodes -h for human readable, -i for inodes
 inodesInUse=$(df -hi | grep "/$" | awk '{print $5}' | sed 's/.$//')
 
+## Create log file and folder if it doesn't exist
+if [[ ! -d log ]]; then
+    mkdir log
+    echo "$(date +%Y%m%d) - Begin Server Checker run" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+    echo "----------------------------------------------------" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+else
+    echo "$(date +%Y%m%d) - Begin Server Checker run" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+    echo "----------------------------------------------------" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+fi
+
 ## Logic checks/Validation
 echo "$(date +%Y%m%d) - Beginning Validation Checks" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
 echo "----------------------------------------------------" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
@@ -49,13 +59,6 @@ fi
 
 echo "$(date +%Y%m%d) - Ending Validation checks" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
 echo "----------------------------------------------------" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
-
-## Create log file and folder if it doesn't exist
-if [[ ! -d log ]]; then
-        mkdir log
-        echo "$(date +%Y%m%d) - Begin Server Checker run" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
-        echo "----------------------------------------------------" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
-fi
 
 ## Package checks
 echo "$(date +%Y%m%d) - Beginning Server Checker package checks" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
@@ -248,9 +251,22 @@ else
     echo "$(date +%Y%m%d) - More than 10% Disk Inodes available" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
 fi
 
-#TODO
 ## Check for "Structure needs cleaning" message in logs
 echo "$(date +%Y%m%d) - Disk Structure check" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+if [[ -f /usr/bin/apt ]]; then
+    check=$($escalationProgram grep -i 'structure needs cleaning' /var/log/syslog | wc -l)
+elif [[ -f /usr/bin/dnf ]]; then
+    check=$($escalationProgram grep -i 'structure needs cleaning' /var/log/messages | wc -l)
+else
+    echo "$(date +%Y%m%d) - Neither APT nor DNF found, exiting" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+    exit 1
+fi
+
+if [[ $check -gt 0 ]]; then
+    echo "$(date +%Y%m%d) - $check instances of 'structure needs cleaning' message found! Disk should be reviewed for corruption!" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+else
+    echo "$(date +%Y%m%d) - Disk Structure clear" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+fi
 
 echo "$(date +%Y%m%d) - Ending Disk checks" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
 echo "----------------------------------------------------" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
@@ -278,3 +294,4 @@ echo "----------------------------------------------------" | tee -a $logDir/ser
 
 # Closing statement
 echo "$(date +%Y%m%d) - End Server Checker run" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+echo "----------------------------------------------------" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log

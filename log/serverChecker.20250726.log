@@ -1,4 +1,5 @@
-
+20250726 - Begin Server Checker run
+----------------------------------------------------
 20250726 - Beginning Validation Checks
 ----------------------------------------------------
 20250726 - sudo found
@@ -14,12 +15,12 @@
 20250726 - Beginning basic checks
 ----------------------------------------------------
 20250726 - Uptime
- 22:31:01 up 175 days, 22:32,  2 users,  load average: 0.02, 0.02, 0.00
+ 23:07:13 up 175 days, 23:09,  2 users,  load average: 0.00, 0.01, 0.00
 20250726 - CPU usage
 Linux 6.1.0-29-amd64 (localhost) 	07/26/2025 	_x86_64_	(2 CPU)
 
-10:31:01 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
-10:31:01 PM  all    0.23    0.00    0.07    0.01    0.00    0.00    0.00    0.00    0.00   99.69
+11:07:13 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+11:07:13 PM  all    0.23    0.00    0.07    0.01    0.00    0.00    0.00    0.00    0.00   99.69
 20250726 - RAM usage
                total        used        free      shared  buff/cache   available
 Mem:               3           1           0           0           2           2
@@ -133,165 +134,11 @@ User ngrogg may run the following commands on localhost:
 20250726 - Log files larger than 1 GB
 20250726 - Deleted files held in memory
 20250726 - Disk Space check
-20250726 - Disk Inode check
-20250726 - Disk Structure check
-20250726 - Ending Disk checks
-----------------------------------------------------
-20250726 - Beginning Update checks
-----------------------------------------------------
-20250726 - Available updates
-20250726 - APT package manager found
-20250726 - Ending Update checks
-----------------------------------------------------
-20250726 - End Server Checker run
-20250726 - Beginning Validation Checks
-----------------------------------------------------
-20250726 - sudo found
-20250726 - Ending Validation checks
-----------------------------------------------------
-20250726 - Beginning Server Checker package checks
-----------------------------------------------------
-20250726 - Required package lsof found, proceeding
-20250726 - Required package ss found, proceeding
-20250726 - Required package mpstat found, proceeding
-20250726 - Ending Server Checker package checks
-----------------------------------------------------
-20250726 - Beginning basic checks
-----------------------------------------------------
-20250726 - Uptime
- 22:49:34 up 175 days, 22:51,  2 users,  load average: 0.00, 0.01, 0.00
-20250726 - CPU usage
-Linux 6.1.0-29-amd64 (localhost) 	07/26/2025 	_x86_64_	(2 CPU)
-
-10:49:34 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
-10:49:34 PM  all    0.23    0.00    0.07    0.01    0.00    0.00    0.00    0.00    0.00   99.69
-20250726 - RAM usage
-               total        used        free      shared  buff/cache   available
-Mem:               3           1           0           0           2           2
-Swap:              0           0           0
-20250726 - Ending basic checks
-----------------------------------------------------
-20250726 - Beginning Service checks
-----------------------------------------------------
-20250726 - Failed services
-  UNIT LOAD ACTIVE SUB DESCRIPTION
-0 loaded units listed.
-20250726 - Dead services
-  UNIT                                 LOAD      ACTIVE   SUB  DESCRIPTION
-  apt-daily-upgrade.service            loaded    inactive dead Daily apt upgrade and clean activities
-  apt-daily.service                    loaded    inactive dead Daily apt download activities
-  certbot.service                      loaded    inactive dead Certbot
-  cloud-init-hotplugd.service          loaded    inactive dead cloud-init hotplug hook daemon
-  dpkg-db-backup.service               loaded    inactive dead Daily dpkg database backup service
-  e2scrub_all.service                  loaded    inactive dead Online ext4 Metadata Check for All Filesystems
-  e2scrub_reap.service                 loaded    inactive dead Remove Stale Online ext4 Metadata Check Snapshots
-  emergency.service                    loaded    inactive dead Emergency Shell
-  fstrim.service                       loaded    inactive dead Discard unused blocks on filesystems from /etc/fstab
-  getty-static.service                 loaded    inactive dead getty on tty2-tty6 if dbus and logind are not available
-  initrd-cleanup.service               loaded    inactive dead Cleaning Up and Shutting Down Daemons
-  initrd-parse-etc.service             loaded    inactive dead Mountpoints Configured in the Real Root
-  initrd-switch-root.service           loaded    inactive dead Switch Root
-  initrd-udevadm-cleanup-db.service    loaded    inactive dead Cleanup udev Database
-  logrotate.service                    loaded    inactive dead Rotate log files
-  man-db.service                       loaded    inactive dead Daily man-db regeneration
-  modprobe@configfs.service            loaded    inactive dead Load Kernel Module configfs
-  modprobe@dm_mod.service              loaded    inactive dead Load Kernel Module dm_mod
-  modprobe@drm.service                 loaded    inactive dead Load Kernel Module drm
-  modprobe@efi_pstore.service          loaded    inactive dead Load Kernel Module efi_pstore
-  modprobe@fuse.service                loaded    inactive dead Load Kernel Module fuse
-  modprobe@loop.service                loaded    inactive dead Load Kernel Module loop
-  nftables.service                     loaded    inactive dead nftables
-  rc-local.service                     loaded    inactive dead /etc/rc.local Compatibility
-  rescue.service                       loaded    inactive dead Rescue Shell
-  sysstat-collect.service              loaded    inactive dead system activity accounting tool
-  sysstat-summary.service              loaded    inactive dead Generate a daily summary of process accounting
-  systemd-ask-password-console.service loaded    inactive dead Dispatch Password Requests to Console
-  systemd-ask-password-wall.service    loaded    inactive dead Forward Password Requests to Wall
-  systemd-firstboot.service            loaded    inactive dead First Boot Wizard
-  systemd-fsck-root.service            loaded    inactive dead File System Check on Root Device
-  systemd-fsckd.service                loaded    inactive dead File System Check Daemon to report status
-  systemd-initctl.service              loaded    inactive dead initctl Compatibility Daemon
-  systemd-networkd-wait-online.service loaded    inactive dead Wait for Network to be Configured
-  systemd-networkd.service             loaded    inactive dead Network Configuration
-  systemd-pcrphase-initrd.service      loaded    inactive dead TPM2 PCR Barrier (initrd)
-  systemd-pcrphase-sysinit.service     loaded    inactive dead TPM2 PCR Barrier (Initialization)
-  systemd-pcrphase.service             loaded    inactive dead TPM2 PCR Barrier (User)
-  systemd-pstore.service               loaded    inactive dead Platform Persistent Storage Archival
-  systemd-repart.service               loaded    inactive dead Repartition Root Disk
-  systemd-sysext.service               loaded    inactive dead Merge System Extension Images into /usr/ and /opt/
-  systemd-tmpfiles-clean.service       loaded    inactive dead Cleanup of Temporary Directories
-  systemd-udev-settle.service          loaded    inactive dead Wait for udev To Complete Device Initialization
-  systemd-update-utmp-runlevel.service loaded    inactive dead Record Runlevel Change in UTMP
-  ufw.service                          loaded    inactive dead Uncomplicated firewall
-
-LOAD   = Reflects whether the unit definition was properly loaded.
-ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
-SUB    = The low-level unit activation state, values depend on unit type.
-67 loaded units listed.
-20250726 - Ending Service checks
-----------------------------------------------------
-20250726 - Beginning Networking checks
-----------------------------------------------------
-Netid State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess
-udp   UNCONN 0      0          127.0.0.1:323        0.0.0.0:*          
-udp   UNCONN 0      0              [::1]:323           [::]:*          
-tcp   LISTEN 0      4096       127.0.0.1:8080       0.0.0.0:*          
-tcp   LISTEN 0      4096       127.0.0.1:11434      0.0.0.0:*          
-tcp   LISTEN 0      128          0.0.0.0:22         0.0.0.0:*          
-tcp   LISTEN 0      128             [::]:22            [::]:*          
-tcp   LISTEN 0      511                *:80               *:*          
-tcp   LISTEN 0      511                *:443              *:*          
-20250726 - Ending Networking checks
-----------------------------------------------------
-20250726 - Beginning User checks
-----------------------------------------------------
-20250726 - Last logins
-ngrogg   pts/1        72.130.234.91    Sat Jul 26 22:30   still logged in
-ngrogg   pts/0        72.130.234.91    Sat Jul 26 22:10   still logged in
-ngrogg   pts/0        72.130.234.91    Sat Jul 26 21:58 - 22:04  (00:06)
-ngrogg   pts/0        72.130.234.91    Sat Jul 26 13:11 - 13:13  (00:02)
-ngrogg   pts/0        72.130.234.91    Sat Jul 26 13:10 - 13:10  (00:00)
-ngrogg   pts/0        72.130.234.91    Sat Jul 26 11:55 - 12:06  (00:11)
-ngrogg   pts/0        72.130.234.91    Fri Jul 25 04:09 - 04:18  (00:08)
-ngrogg   pts/0        72.130.234.91    Fri Jul 25 03:53 - 03:58  (00:04)
-ngrogg   pts/1        72.130.234.91    Thu Jul 24 21:58 - 21:58  (00:00)
-ngrogg   pts/0        72.130.234.91    Thu Jul 24 21:53 - 21:58  (00:05)
-20250726 - User password check
-dgotshalk
-Password expires					: never
-htemple
-Password expires					: never
-ngrogg
-Password expires					: never
-snieves
-Password expires					: never
-20250726 - Escalation Check
-Matching Defaults entries for ngrogg on localhost:
-    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin, use_pty
-
-User ngrogg may run the following commands on localhost:
-    (ALL) NOPASSWD: ALL
-20250726 - Ending User checks
-----------------------------------------------------
-20250726 - Beginning Disk checks
-----------------------------------------------------
-20250726 - Log files larger than 1 GB
-20250726 - Deleted files held in memory
-20250726 - Disk Space check
-20250726 - Less than 10% Disk Space available, checking file usage
-16G	total
-16G	/
-13G	/usr
-6.6G	/usr/share
-5.5G	/usr/share/ollama/.ollama/models
-5.5G	/usr/share/ollama/.ollama
-5.5G	/usr/share/ollama
-3.5G	/usr/local/lib/ollama
-3.5G	/usr/local/lib
-3.5G	/usr/local
+20250726 - More than 10% Disk Space available
 20250726 - Disk Inode check
 20250726 - More than 10% Disk Inodes available
 20250726 - Disk Structure check
+20250726 - Disk Structure clear
 20250726 - Ending Disk checks
 ----------------------------------------------------
 20250726 - Beginning Update checks
@@ -301,23 +148,3 @@ User ngrogg may run the following commands on localhost:
 20250726 - Ending Update checks
 ----------------------------------------------------
 20250726 - End Server Checker run
-    508 /var/lib/docker/overlay2/9e157d31431f05c057573809e2b8672156c0ad49e4da4ae288eeb03620f56829/diff/usr/lib/mysqlsh/lib/python3.13/site-packages/oci/database_management/models
-    542 /var/lib/docker/overlay2/9e157d31431f05c057573809e2b8672156c0ad49e4da4ae288eeb03620f56829/diff/usr/lib/mysqlsh/lib/python3.13/site-packages/oci/devops/models
-    554 /usr/share/nodejs/caniuse-lite/data/features
-    571 /usr/include/linux
-    594 /var/lib/docker/overlay2/9e157d31431f05c057573809e2b8672156c0ad49e4da4ae288eeb03620f56829/diff/usr/lib/mysqlsh/lib/python3.13/site-packages/oci/data_integration/models
-    607 /var/lib/docker/overlay2/9e157d31431f05c057573809e2b8672156c0ad49e4da4ae288eeb03620f56829/diff/usr/lib/mysqlsh/lib/python3.13/site-packages/oci/core/models
-    641 /usr/share/nodejs/lodash-es
-    644 /usr/share/nodejs/lodash
-    665 /usr/share/man/man8
-    681 /usr/share/vim/vim90/syntax
-    803 /usr/share/python-babel-localedata/locale-data
-    829 /var/cache/apt/archives
-    900 /usr/share/bash-completion/completions
-    927 /usr/share/nodejs
-   1060 /usr/bin
-   1254 /usr/lib/x86_64-linux-gnu
-   1442 /usr/share/man/man1
-   1572 /usr/share/doc
-   2104 /usr/share/man/man3
-   4453 /var/lib/dpkg/info
