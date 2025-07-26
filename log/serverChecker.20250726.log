@@ -156,3 +156,430 @@ SUB    = The low-level unit activation state, values depend on unit type.
 20250726 - Ending Service checks
 ----------------------------------------------------
 20250726 - End Server Checker run
+20250726 - Beginning Validation Checks
+----------------------------------------------------
+20250726 - sudo and doas found, default to sudo
+20250726 - Ending Validation checks
+----------------------------------------------------
+20250726 - Beginning Server Checker package checks
+----------------------------------------------------
+20250726 - Required package lsof found, proceeding
+20250726 - Required package ss found, proceeding
+20250726 - Required package mpstat found, proceeding
+20250726 - Ending Server Checker package checks
+----------------------------------------------------
+20250726 - Beginning basic checks
+----------------------------------------------------
+20250726 - Uptime
+ 11:42:41 up  1:20,  1 user,  load average: 0.08, 0.31, 0.40
+20250726 - CPU usage
+Linux 6.12.10-76061203-generic (pop-os) 	07/26/2025 	_x86_64_	(16 CPU)
+
+11:42:41 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+11:42:41 AM  all    0.35    0.41    0.26    0.36    0.00    0.01    0.00    0.00    0.00   98.60
+20250726 - RAM usage
+               total        used        free      shared  buff/cache   available
+Mem:              61           2          55           0           3          55
+Swap:             19           0          19
+20250726 - Ending basic checks
+----------------------------------------------------
+20250726 - Beginning Service checks
+----------------------------------------------------
+20250726 - Failed services
+  UNIT             LOAD   ACTIVE SUB    DESCRIPTION
+● user@111.service loaded failed failed User Manager for UID 111
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+1 loaded units listed.
+20250726 - Dead services
+  UNIT                                   LOAD      ACTIVE   SUB  DESCRIPTION
+  alsa-state.service                     loaded    inactive dead Manage Sound Card State (restore and store)
+  apport-autoreport.service              loaded    inactive dead Process error reports when automatic reporting is enabled
+  apt-daily-upgrade.service              loaded    inactive dead Daily apt upgrade and clean activities
+  apt-daily.service                      loaded    inactive dead Daily apt download activities
+  dm-event.service                       loaded    inactive dead Device-mapper event daemon
+  dmesg.service                          loaded    inactive dead Save initial kernel messages after boot
+● dnsmasq.service                        masked    inactive dead dnsmasq.service
+  dpkg-db-backup.service                 loaded    inactive dead Daily dpkg database backup service
+  e2scrub_all.service                    loaded    inactive dead Online ext4 Metadata Check for All Filesystems
+  e2scrub_reap.service                   loaded    inactive dead Remove Stale Online ext4 Metadata Check Snapshots
+  emergency.service                      loaded    inactive dead Emergency Shell
+  fstrim.service                         loaded    inactive dead Discard unused blocks on filesystems from /etc/fstab
+  fwupd-refresh.service                  loaded    inactive dead Refresh fwupd metadata and update motd
+  getty-static.service                   loaded    inactive dead getty on tty2-tty6 if dbus and logind are not available
+  getty@tty1.service                     loaded    inactive dead Getty on tty1
+  gpu-manager.service                    loaded    inactive dead Detect the available GPUs and deal with any system changes
+  lircd-setup.service                    loaded    inactive dead lircd(8) initialization helper tool
+  logrotate.service                      loaded    inactive dead Rotate log files
+  lvm2-lvmpolld.service                  loaded    inactive dead LVM2 poll daemon
+  man-db.service                         loaded    inactive dead Daily man-db regeneration
+  modprobe@configfs.service              loaded    inactive dead Load Kernel Module configfs
+  modprobe@drm.service                   loaded    inactive dead Load Kernel Module drm
+  modprobe@efi_pstore.service            loaded    inactive dead Load Kernel Module efi_pstore
+  modprobe@fuse.service                  loaded    inactive dead Load Kernel Module fuse
+  motd-news.service                      loaded    inactive dead Message of the Day
+  netplan-ovs-cleanup.service            loaded    inactive dead OpenVSwitch configuration for cleanup
+  plocate-updatedb.service               loaded    inactive dead Update the plocate database
+  plymouth-quit.service                  loaded    inactive dead Terminate Plymouth Boot Screen
+  pop-default-settings-zram.service      loaded    inactive dead Auto-configure and enable zram on Pop
+  rc-local.service                       loaded    inactive dead /etc/rc.local Compatibility
+  rescue.service                         loaded    inactive dead Rescue Shell
+  resolvconf-pull-resolved.service       loaded    inactive dead resolvconf-pull-resolved.service
+  secureboot-db.service                  loaded    inactive dead Secure Boot updates for DB and DBX
+  systemd-ask-password-console.service   loaded    inactive dead Dispatch Password Requests to Console
+  systemd-ask-password-plymouth.service  loaded    inactive dead Forward Password Requests to Plymouth
+  systemd-ask-password-wall.service      loaded    inactive dead Forward Password Requests to Wall
+  systemd-boot-system-token.service      loaded    inactive dead Store a System Token in an EFI Variable
+  systemd-fsck-root.service              loaded    inactive dead File System Check on Root Device
+  systemd-fsckd.service                  loaded    inactive dead File System Check Daemon to report status
+  systemd-initctl.service                loaded    inactive dead initctl Compatibility Daemon
+  systemd-machine-id-commit.service      loaded    inactive dead Commit a transient machine-id on disk
+  systemd-networkd.service               loaded    inactive dead Network Configuration
+  systemd-pstore.service                 loaded    inactive dead Platform Persistent Storage Archival
+  systemd-rfkill.service                 loaded    inactive dead Load/Save RF Kill Switch Status
+  systemd-tmpfiles-clean.service         loaded    inactive dead Cleanup of Temporary Directories
+  systemd-update-utmp-runlevel.service   loaded    inactive dead Record Runlevel Change in UTMP
+  thermald.service                       loaded    inactive dead Thermal Daemon Service
+  ua-reboot-cmds.service                 loaded    inactive dead Ubuntu Pro reboot cmds
+  ua-timer.service                       loaded    inactive dead Ubuntu Pro Timer for running repeated jobs
+  ubuntu-advantage.service               loaded    inactive dead Ubuntu Pro Background Auto Attach
+  user-runtime-dir@111.service           loaded    inactive dead User Runtime Directory /run/user/111
+  uuidd.service                          loaded    inactive dead Daemon for generating UUIDs
+  whoopsie.service                       loaded    inactive dead crash report submission
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+77 loaded units listed.
+20250726 - Ending Service checks
+----------------------------------------------------
+20250726 - Beginning Networking checks
+----------------------------------------------------
+Netid State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                              
+udp   UNCONN 0      0      127.0.0.53%lo:53         0.0.0.0:*                                        
+udp   UNCONN 0      0          127.0.0.1:323        0.0.0.0:*                                        
+udp   UNCONN 0      0        224.0.0.251:5353       0.0.0.0:*    users:(("brave",pid=14670,fd=317))  
+udp   UNCONN 0      0            0.0.0.0:5353       0.0.0.0:*                                        
+udp   UNCONN 0      0            0.0.0.0:44066      0.0.0.0:*                                        
+udp   UNCONN 0      0              [::1]:323           [::]:*                                        
+udp   UNCONN 0      0               [::]:35581         [::]:*                                        
+udp   UNCONN 0      0               [::]:5353          [::]:*                                        
+tcp   LISTEN 0      10           0.0.0.0:3689       0.0.0.0:*    users:(("rhythmbox",pid=6545,fd=18))
+tcp   LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*                                        
+tcp   LISTEN 0      128        127.0.0.1:631        0.0.0.0:*                                        
+tcp   LISTEN 0      128        127.0.0.1:5939       0.0.0.0:*                                        
+tcp   LISTEN 0      5          127.0.0.1:37187      0.0.0.0:*    users:(("python3",pid=14514,fd=0))  
+tcp   LISTEN 0      5          127.0.0.1:46089      0.0.0.0:*    users:(("python3",pid=11125,fd=0))  
+tcp   LISTEN 0      10              [::]:3689          [::]:*    users:(("rhythmbox",pid=6545,fd=19))
+20250726 - Ending Networking checks
+----------------------------------------------------
+20250726 - Beginning update check
+----------------------------------------------------
+20250726 - APT package manager found
+20250726 - Ending update check
+----------------------------------------------------
+20250726 - End Server Checker run
+20250726 - Beginning Validation Checks
+----------------------------------------------------
+20250726 - sudo and doas found, default to sudo
+20250726 - Ending Validation checks
+----------------------------------------------------
+20250726 - Beginning Server Checker package checks
+----------------------------------------------------
+20250726 - Required package lsof found, proceeding
+20250726 - Required package ss found, proceeding
+20250726 - Required package mpstat found, proceeding
+20250726 - Ending Server Checker package checks
+----------------------------------------------------
+20250726 - Beginning basic checks
+----------------------------------------------------
+20250726 - Uptime
+ 11:43:07 up  1:20,  1 user,  load average: 0.18, 0.32, 0.40
+20250726 - CPU usage
+Linux 6.12.10-76061203-generic (pop-os) 	07/26/2025 	_x86_64_	(16 CPU)
+
+11:43:07 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+11:43:07 AM  all    0.35    0.41    0.26    0.36    0.00    0.01    0.00    0.00    0.00   98.60
+20250726 - RAM usage
+               total        used        free      shared  buff/cache   available
+Mem:              61           2          55           0           3          55
+Swap:             19           0          19
+20250726 - Ending basic checks
+----------------------------------------------------
+20250726 - Beginning Service checks
+----------------------------------------------------
+20250726 - Failed services
+  UNIT             LOAD   ACTIVE SUB    DESCRIPTION
+● user@111.service loaded failed failed User Manager for UID 111
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+1 loaded units listed.
+20250726 - Dead services
+  UNIT                                   LOAD      ACTIVE   SUB  DESCRIPTION
+  alsa-state.service                     loaded    inactive dead Manage Sound Card State (restore and store)
+  apport-autoreport.service              loaded    inactive dead Process error reports when automatic reporting is enabled
+  apt-daily-upgrade.service              loaded    inactive dead Daily apt upgrade and clean activities
+  apt-daily.service                      loaded    inactive dead Daily apt download activities
+  dm-event.service                       loaded    inactive dead Device-mapper event daemon
+  dmesg.service                          loaded    inactive dead Save initial kernel messages after boot
+● dnsmasq.service                        masked    inactive dead dnsmasq.service
+  dpkg-db-backup.service                 loaded    inactive dead Daily dpkg database backup service
+  e2scrub_all.service                    loaded    inactive dead Online ext4 Metadata Check for All Filesystems
+  e2scrub_reap.service                   loaded    inactive dead Remove Stale Online ext4 Metadata Check Snapshots
+  emergency.service                      loaded    inactive dead Emergency Shell
+  fstrim.service                         loaded    inactive dead Discard unused blocks on filesystems from /etc/fstab
+  fwupd-refresh.service                  loaded    inactive dead Refresh fwupd metadata and update motd
+  getty-static.service                   loaded    inactive dead getty on tty2-tty6 if dbus and logind are not available
+  getty@tty1.service                     loaded    inactive dead Getty on tty1
+  gpu-manager.service                    loaded    inactive dead Detect the available GPUs and deal with any system changes
+  lircd-setup.service                    loaded    inactive dead lircd(8) initialization helper tool
+  logrotate.service                      loaded    inactive dead Rotate log files
+  lvm2-lvmpolld.service                  loaded    inactive dead LVM2 poll daemon
+  man-db.service                         loaded    inactive dead Daily man-db regeneration
+  modprobe@configfs.service              loaded    inactive dead Load Kernel Module configfs
+  modprobe@drm.service                   loaded    inactive dead Load Kernel Module drm
+  modprobe@efi_pstore.service            loaded    inactive dead Load Kernel Module efi_pstore
+  modprobe@fuse.service                  loaded    inactive dead Load Kernel Module fuse
+  motd-news.service                      loaded    inactive dead Message of the Day
+  netplan-ovs-cleanup.service            loaded    inactive dead OpenVSwitch configuration for cleanup
+  plocate-updatedb.service               loaded    inactive dead Update the plocate database
+  plymouth-quit.service                  loaded    inactive dead Terminate Plymouth Boot Screen
+  pop-default-settings-zram.service      loaded    inactive dead Auto-configure and enable zram on Pop
+  rc-local.service                       loaded    inactive dead /etc/rc.local Compatibility
+  rescue.service                         loaded    inactive dead Rescue Shell
+  resolvconf-pull-resolved.service       loaded    inactive dead resolvconf-pull-resolved.service
+  secureboot-db.service                  loaded    inactive dead Secure Boot updates for DB and DBX
+  systemd-ask-password-console.service   loaded    inactive dead Dispatch Password Requests to Console
+  systemd-ask-password-plymouth.service  loaded    inactive dead Forward Password Requests to Plymouth
+  systemd-ask-password-wall.service      loaded    inactive dead Forward Password Requests to Wall
+  systemd-boot-system-token.service      loaded    inactive dead Store a System Token in an EFI Variable
+  systemd-fsck-root.service              loaded    inactive dead File System Check on Root Device
+  systemd-fsckd.service                  loaded    inactive dead File System Check Daemon to report status
+  systemd-initctl.service                loaded    inactive dead initctl Compatibility Daemon
+  systemd-machine-id-commit.service      loaded    inactive dead Commit a transient machine-id on disk
+  systemd-networkd.service               loaded    inactive dead Network Configuration
+  systemd-pstore.service                 loaded    inactive dead Platform Persistent Storage Archival
+  systemd-rfkill.service                 loaded    inactive dead Load/Save RF Kill Switch Status
+  systemd-tmpfiles-clean.service         loaded    inactive dead Cleanup of Temporary Directories
+  systemd-update-utmp-runlevel.service   loaded    inactive dead Record Runlevel Change in UTMP
+  thermald.service                       loaded    inactive dead Thermal Daemon Service
+  ua-reboot-cmds.service                 loaded    inactive dead Ubuntu Pro reboot cmds
+  ua-timer.service                       loaded    inactive dead Ubuntu Pro Timer for running repeated jobs
+  ubuntu-advantage.service               loaded    inactive dead Ubuntu Pro Background Auto Attach
+  user-runtime-dir@111.service           loaded    inactive dead User Runtime Directory /run/user/111
+  uuidd.service                          loaded    inactive dead Daemon for generating UUIDs
+  whoopsie.service                       loaded    inactive dead crash report submission
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+77 loaded units listed.
+20250726 - Ending Service checks
+----------------------------------------------------
+20250726 - Beginning Networking checks
+----------------------------------------------------
+Netid State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                              
+udp   UNCONN 0      0      127.0.0.53%lo:53         0.0.0.0:*                                        
+udp   UNCONN 0      0          127.0.0.1:323        0.0.0.0:*                                        
+udp   UNCONN 0      0        224.0.0.251:5353       0.0.0.0:*    users:(("brave",pid=14670,fd=317))  
+udp   UNCONN 0      0            0.0.0.0:5353       0.0.0.0:*                                        
+udp   UNCONN 0      0            0.0.0.0:44066      0.0.0.0:*                                        
+udp   UNCONN 0      0              [::1]:323           [::]:*                                        
+udp   UNCONN 0      0               [::]:35581         [::]:*                                        
+udp   UNCONN 0      0               [::]:5353          [::]:*                                        
+tcp   LISTEN 0      10           0.0.0.0:3689       0.0.0.0:*    users:(("rhythmbox",pid=6545,fd=18))
+tcp   LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*                                        
+tcp   LISTEN 0      128        127.0.0.1:631        0.0.0.0:*                                        
+tcp   LISTEN 0      128        127.0.0.1:5939       0.0.0.0:*                                        
+tcp   LISTEN 0      5          127.0.0.1:37187      0.0.0.0:*    users:(("python3",pid=14514,fd=0))  
+tcp   LISTEN 0      5          127.0.0.1:41879      0.0.0.0:*    users:(("python3",pid=16104,fd=0))  
+tcp   LISTEN 0      10              [::]:3689          [::]:*    users:(("rhythmbox",pid=6545,fd=19))
+20250726 - Ending Networking checks
+----------------------------------------------------
+20250726 - Beginning available update check
+----------------------------------------------------
+20250726 - APT package manager found
+20250726 - Ending available update check
+----------------------------------------------------
+20250726 - End Server Checker run
+ngrogg   :1           :1               Sat Jul 26 10:23   still logged in
+reboot   system boot  6.12.10-76061203 Sat Jul 26 10:23   still running
+ngrogg   :1           :1               Sat Jul 26 02:54 - down   (01:09)
+reboot   system boot  6.12.10-76061203 Sat Jul 26 02:53 - 04:03  (01:10)
+ngrogg   :1           :1               Fri Jul 25 12:50 - down   (03:37)
+reboot   system boot  6.12.10-76061203 Fri Jul 25 12:49 - 16:27  (03:38)
+ngrogg   :1           :1               Fri Jul 25 01:42 - down   (01:54)
+reboot   system boot  6.12.10-76061203 Fri Jul 25 01:41 - 03:36  (01:55)
+ngrogg   pts/3        tmux(12119).%1   Thu Jul 24 12:24 - 12:24  (00:00)
+ngrogg   pts/2        tmux(12119).%0   Thu Jul 24 12:24 - 12:24  (00:00)
+ngrogg   :1           :1               Sat Jul 26 10:23   still logged in
+reboot   system boot  6.12.10-76061203 Sat Jul 26 10:23   still running
+ngrogg   :1           :1               Sat Jul 26 02:54 - down   (01:09)
+reboot   system boot  6.12.10-76061203 Sat Jul 26 02:53 - 04:03  (01:10)
+ngrogg   :1           :1               Fri Jul 25 12:50 - down   (03:37)
+reboot   system boot  6.12.10-76061203 Fri Jul 25 12:49 - 16:27  (03:38)
+ngrogg   :1           :1               Fri Jul 25 01:42 - down   (01:54)
+reboot   system boot  6.12.10-76061203 Fri Jul 25 01:41 - 03:36  (01:55)
+ngrogg   pts/3        tmux(12119).%1   Thu Jul 24 12:24 - 12:24  (00:00)
+ngrogg   pts/2        tmux(12119).%0   Thu Jul 24 12:24 - 12:24  (00:00)
+20250726 - Beginning Validation Checks
+----------------------------------------------------
+20250726 - sudo and doas found, default to sudo
+20250726 - Ending Validation checks
+----------------------------------------------------
+20250726 - Beginning Server Checker package checks
+----------------------------------------------------
+20250726 - Required package lsof found, proceeding
+20250726 - Required package ss found, proceeding
+20250726 - Required package mpstat found, proceeding
+20250726 - Ending Server Checker package checks
+----------------------------------------------------
+20250726 - Beginning basic checks
+----------------------------------------------------
+20250726 - Uptime
+ 11:53:15 up  1:30,  1 user,  load average: 0.00, 0.08, 0.23
+20250726 - CPU usage
+Linux 6.12.10-76061203-generic (pop-os) 	07/26/2025 	_x86_64_	(16 CPU)
+
+11:53:15 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+11:53:15 AM  all    0.33    0.38    0.24    0.33    0.00    0.01    0.00    0.00    0.00   98.70
+20250726 - RAM usage
+               total        used        free      shared  buff/cache   available
+Mem:              61           3          54           0           3          54
+Swap:             19           0          19
+20250726 - Ending basic checks
+----------------------------------------------------
+20250726 - Beginning Service checks
+----------------------------------------------------
+20250726 - Failed services
+  UNIT             LOAD   ACTIVE SUB    DESCRIPTION
+● user@111.service loaded failed failed User Manager for UID 111
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+1 loaded units listed.
+20250726 - Dead services
+  UNIT                                   LOAD      ACTIVE   SUB  DESCRIPTION
+  alsa-state.service                     loaded    inactive dead Manage Sound Card State (restore and store)
+  apport-autoreport.service              loaded    inactive dead Process error reports when automatic reporting is enabled
+  apt-daily-upgrade.service              loaded    inactive dead Daily apt upgrade and clean activities
+  apt-daily.service                      loaded    inactive dead Daily apt download activities
+  dm-event.service                       loaded    inactive dead Device-mapper event daemon
+  dmesg.service                          loaded    inactive dead Save initial kernel messages after boot
+● dnsmasq.service                        masked    inactive dead dnsmasq.service
+  dpkg-db-backup.service                 loaded    inactive dead Daily dpkg database backup service
+  e2scrub_all.service                    loaded    inactive dead Online ext4 Metadata Check for All Filesystems
+  e2scrub_reap.service                   loaded    inactive dead Remove Stale Online ext4 Metadata Check Snapshots
+  emergency.service                      loaded    inactive dead Emergency Shell
+  fstrim.service                         loaded    inactive dead Discard unused blocks on filesystems from /etc/fstab
+  fwupd-refresh.service                  loaded    inactive dead Refresh fwupd metadata and update motd
+  getty-static.service                   loaded    inactive dead getty on tty2-tty6 if dbus and logind are not available
+  getty@tty1.service                     loaded    inactive dead Getty on tty1
+  gpu-manager.service                    loaded    inactive dead Detect the available GPUs and deal with any system changes
+  lircd-setup.service                    loaded    inactive dead lircd(8) initialization helper tool
+  logrotate.service                      loaded    inactive dead Rotate log files
+  lvm2-lvmpolld.service                  loaded    inactive dead LVM2 poll daemon
+  man-db.service                         loaded    inactive dead Daily man-db regeneration
+  modprobe@configfs.service              loaded    inactive dead Load Kernel Module configfs
+  modprobe@drm.service                   loaded    inactive dead Load Kernel Module drm
+  modprobe@efi_pstore.service            loaded    inactive dead Load Kernel Module efi_pstore
+  modprobe@fuse.service                  loaded    inactive dead Load Kernel Module fuse
+  motd-news.service                      loaded    inactive dead Message of the Day
+  netplan-ovs-cleanup.service            loaded    inactive dead OpenVSwitch configuration for cleanup
+  plocate-updatedb.service               loaded    inactive dead Update the plocate database
+  plymouth-quit.service                  loaded    inactive dead Terminate Plymouth Boot Screen
+  pop-default-settings-zram.service      loaded    inactive dead Auto-configure and enable zram on Pop
+  rc-local.service                       loaded    inactive dead /etc/rc.local Compatibility
+  rescue.service                         loaded    inactive dead Rescue Shell
+  resolvconf-pull-resolved.service       loaded    inactive dead resolvconf-pull-resolved.service
+  secureboot-db.service                  loaded    inactive dead Secure Boot updates for DB and DBX
+  systemd-ask-password-console.service   loaded    inactive dead Dispatch Password Requests to Console
+  systemd-ask-password-plymouth.service  loaded    inactive dead Forward Password Requests to Plymouth
+  systemd-ask-password-wall.service      loaded    inactive dead Forward Password Requests to Wall
+  systemd-boot-system-token.service      loaded    inactive dead Store a System Token in an EFI Variable
+  systemd-fsck-root.service              loaded    inactive dead File System Check on Root Device
+  systemd-fsckd.service                  loaded    inactive dead File System Check Daemon to report status
+  systemd-initctl.service                loaded    inactive dead initctl Compatibility Daemon
+  systemd-machine-id-commit.service      loaded    inactive dead Commit a transient machine-id on disk
+  systemd-networkd.service               loaded    inactive dead Network Configuration
+  systemd-pstore.service                 loaded    inactive dead Platform Persistent Storage Archival
+  systemd-rfkill.service                 loaded    inactive dead Load/Save RF Kill Switch Status
+  systemd-tmpfiles-clean.service         loaded    inactive dead Cleanup of Temporary Directories
+  systemd-update-utmp-runlevel.service   loaded    inactive dead Record Runlevel Change in UTMP
+  thermald.service                       loaded    inactive dead Thermal Daemon Service
+  ua-reboot-cmds.service                 loaded    inactive dead Ubuntu Pro reboot cmds
+  ua-timer.service                       loaded    inactive dead Ubuntu Pro Timer for running repeated jobs
+  ubuntu-advantage.service               loaded    inactive dead Ubuntu Pro Background Auto Attach
+  user-runtime-dir@111.service           loaded    inactive dead User Runtime Directory /run/user/111
+  uuidd.service                          loaded    inactive dead Daemon for generating UUIDs
+  whoopsie.service                       loaded    inactive dead crash report submission
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+77 loaded units listed.
+20250726 - Ending Service checks
+----------------------------------------------------
+20250726 - Beginning Networking checks
+----------------------------------------------------
+Netid State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                              
+udp   UNCONN 0      0      127.0.0.53%lo:53         0.0.0.0:*                                        
+udp   UNCONN 0      0          127.0.0.1:323        0.0.0.0:*                                        
+udp   UNCONN 0      0        224.0.0.251:5353       0.0.0.0:*    users:(("brave",pid=14670,fd=317))  
+udp   UNCONN 0      0            0.0.0.0:5353       0.0.0.0:*                                        
+udp   UNCONN 0      0            0.0.0.0:44066      0.0.0.0:*                                        
+udp   UNCONN 0      0              [::1]:323           [::]:*                                        
+udp   UNCONN 0      0               [::]:35581         [::]:*                                        
+udp   UNCONN 0      0               [::]:5353          [::]:*                                        
+tcp   LISTEN 0      10           0.0.0.0:3689       0.0.0.0:*    users:(("rhythmbox",pid=6545,fd=18))
+tcp   LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*                                        
+tcp   LISTEN 0      128        127.0.0.1:631        0.0.0.0:*                                        
+tcp   LISTEN 0      128        127.0.0.1:5939       0.0.0.0:*                                        
+tcp   LISTEN 0      5          127.0.0.1:37187      0.0.0.0:*    users:(("python3",pid=14514,fd=0))  
+tcp   LISTEN 0      5          127.0.0.1:41879      0.0.0.0:*    users:(("python3",pid=16104,fd=0))  
+tcp   LISTEN 0      10              [::]:3689          [::]:*    users:(("rhythmbox",pid=6545,fd=19))
+20250726 - Ending Networking checks
+----------------------------------------------------
+20250726 - Beginning User checks
+----------------------------------------------------
+20250726 - Last logins
+ngrogg   :1           :1               Sat Jul 26 10:23   still logged in
+reboot   system boot  6.12.10-76061203 Sat Jul 26 10:23   still running
+ngrogg   :1           :1               Sat Jul 26 02:54 - down   (01:09)
+reboot   system boot  6.12.10-76061203 Sat Jul 26 02:53 - 04:03  (01:10)
+ngrogg   :1           :1               Fri Jul 25 12:50 - down   (03:37)
+reboot   system boot  6.12.10-76061203 Fri Jul 25 12:49 - 16:27  (03:38)
+ngrogg   :1           :1               Fri Jul 25 01:42 - down   (01:54)
+reboot   system boot  6.12.10-76061203 Fri Jul 25 01:41 - 03:36  (01:55)
+ngrogg   pts/3        tmux(12119).%1   Thu Jul 24 12:24 - 12:24  (00:00)
+ngrogg   pts/2        tmux(12119).%0   Thu Jul 24 12:24 - 12:24  (00:00)
+20250726 - Expired Passwords
+20250726 - Escalation Check
+Matching Defaults entries for ngrogg on pop-os:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty
+
+User ngrogg may run the following commands on pop-os:
+    (ALL : ALL) ALL
+20250726 - Ending User checks
+----------------------------------------------------
+20250726 - Beginning Disk checks
+----------------------------------------------------
+20250726 - Log files larger than 1 GB
+20250726 - Files held in memory
+20250726 - Disk Space check
+20250726 - Disk Inode check
+20250726 - Disk Structure check
+20250726 - Ending Disk checks
+----------------------------------------------------
+20250726 - Beginning Update checks
+----------------------------------------------------
+20250726 - Available updates
+20250726 - APT package manager found
+20250726 - Ending Update checks
+----------------------------------------------------
+20250726 - End Server Checker run
