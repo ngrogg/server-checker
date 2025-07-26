@@ -14,6 +14,17 @@
 ## Variable for log directory, change as needed
 logDir="log"
 
+## Variable for disk space checks, expand to additional variables for other filepaths/partitions as needed
+### Command break down
+### df -h, list available disk space -h for human readable
+### grep "/$", find line that ends with just a slash. Should be root partition.
+### awk '{print $5}', Print the fifth option. Disk space w/ percentage.
+### sed 's/.$//', Remove last character. Leave just the number.
+spaceInUse=$(df -h | grep "/$" | awk '{print $5}' | sed 's/.$//')
+
+### df -hi, list available disk inodes -h for human readable, -i for inodes
+inodesInUse=$(df -hi | grep "/$" | awk '{print $5}' | sed 's/.$//')
+
 ## Logic checks/Validation
 echo "$(date +%Y%m%d) - Beginning Validation Checks" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
 echo "----------------------------------------------------" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
@@ -202,13 +213,40 @@ echo "$(date +%Y%m%d) - Deleted files held in memory" | tee -a $logDir/serverChe
 ### sort -k7 -n -r, sort key 7 (the size field) numerically and in reverse
 $escalationProgram lsof +L1 | tail -n +2 | numfmt --field=7 --to=iec | sort -k7 -n -r
 
-#TODO
-## Low disk space
+## Low disk space, use 10% free space as threshold
 echo "$(date +%Y%m%d) - Disk Space check" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+if [[ $spaceInUse -gt 90 ]]; then
+    echo "$(date +%Y%m%d) - Less than 10% Disk Space available, checking file usage" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
 
-#TODO
-## Low disk inodes
+    ### Command breakdown
+    ### du --max-depth=5 -chax / 2>&1, disk usage check / five levels deep 
+    ### -c total -h human readable -a all files -x use only current file system
+    ### 2>&1, STDERR to STDOUT
+    ### grep '[0-9\.]\+G', grep for GB
+    ### sort -hr, sort human readable and reverse
+    ### head, list first few entries
+    du --max-depth=5 -chax / 2>&1 | grep '[0-9\.]\+G' | sort -hr | head | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+
+else
+    echo "$(date +%Y%m%d) - More than 10% Disk Space available" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+fi
+
+## Low disk inodes, use 10% free inodes as threshold
 echo "$(date +%Y%m%d) - Disk Inode check" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+if [[ $inodesInUse -gt 90 ]]; then
+    echo "$(date +%Y%m%d) - Less than 10% Disk Inodes available, checking node usage" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+
+    ### Command breakdown
+    ### find / -xdev -printf '%h\n', find files in / and stay on current file system print directory and each item is on a new line
+    ### sort, sort returned filepaths
+    ### uniq -c, count unique occurrences of item
+    ### sort -k 1 -n, sort on field 1 by number
+    ### tail -20, list last 20 files
+    $escalationProgram find / -xdev -printf '%h\n' | sort | uniq -c | sort -k 1 -n | tail -20 | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+
+else
+    echo "$(date +%Y%m%d) - More than 10% Disk Inodes available" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+fi
 
 #TODO
 ## Check for "Structure needs cleaning" message in logs
