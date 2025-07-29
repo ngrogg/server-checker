@@ -4,13 +4,7 @@
 # BASH script to view/log server information
 # By Nicholas Grogg
 
-# Template log messages, remove when complete
-#echo "$(date +%Y%m%d) - " | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
-#echo "----------------------------------------------------" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
-# | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
-
 # Preparation
-
 ## Variable for log directory, change as needed
 logDir="log"
 
@@ -232,6 +226,15 @@ if [[ $spaceInUse -gt 90 ]]; then
 
 else
     echo "$(date +%Y%m%d) - More than 10% Disk Space available" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+fi
+
+## Check for SWAP
+echo "$(date +%Y%m%d) - SWAP check" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+
+if [[ $(grep -i swap /etc/fstab) ]]; then
+    echo "$(date +%Y%m%d) - SWAP found in fstab" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
+else
+    echo "$(date +%Y%m%d) - SWAP not found in fstab" | tee -a $logDir/serverChecker.$(date +%Y%m%d).log
 fi
 
 ## Low disk inodes, use 10% free inodes as threshold
